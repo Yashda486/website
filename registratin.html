@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: chartreuse;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+        }
+        .container1{
+            border: 2px solid rebeccapurple;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 10px;
+            background-color:springgreen;
+        }
+    
+    </style>
+    <script>
+        function Validateform(){
+            var username=document.getElementById("user_name");
+            
+            if(username.value.trim()==""){
+                alert("username should not be blank");
+                return false;
+            }
+            else if(username.value.length<7){
+                alert("username should be minimum 7 characters"); 
+                return false;
+            }
+            else if(username.value.length>13){
+                alert("username should be maximum 13 characters");
+                return false;
+            }
+            var Password=document.getElementById("password");
+            var CPassword=document.getElementById("cpassword");
+             if(Password.value.trim()==""){
+                alert("Password should not be blank"); 
+                return false;
+            }
+             if(Password.value.length<5){
+                alert("Password should be minimum 5 characters");
+                return false;
+            }
+             if(Password.value.length>12){
+                alert("Password should be maximum 12 characters");
+                return false;
+            }
+             if(Password.value!=CPassword.value){
+                alert("Passwords are not matching");
+                return false;
+            }
+            var firstname=document.getElementById("first_name");
+            if(firstname.value.trim()==""){
+                alert("please enter your name");
+                return false;
+            }
+            var email=document.getElementById("email").value;
+             if(email.indexOf('@')<=0){
+                alert("invalid @ position");
+                return false;
+            }
+             if((email.charAt(email.length-4)!='.') && (email.charAt(email.length-3)!='.')){
+                alert("invalid . position");
+                return false;
+            }
+            var mobileno=document.getElementById("mobile").value;
+            if(mobileno==""){
+                alert("enter your mobile number");
+                return false;
+            }
+            if(isNaN(mobileno)){
+                alert("only numeric digits allowed");
+                return false;
+            }
+            if(mobileno.length!=10){
+                alert("mobile number should be 10 digits");
+                return false;
+            }
+            var age=document.getElementById("age").value;
+             if(age==""){
+                alert("enter your age");
+                return false;
+            }
+            if(isNaN(age)){
+                alert("only numeric digits allowed");
+                return false;
+            }
+            if(age<22){
+                alert("Age should be greater than 22");
+                return false;
+            }
+          var date=document.getElementById("date").value;
+          if(date==""){
+              alert("please enter your date of birth");
+              return false;
+          }
+          var country=document.getElementById("country").value;
+          if(country==""){
+              alert("please enter your residing country");
+              return false;
+          }
+          if(country==">>--select>>--"){
+              alert("please enter your residing country");
+              return false;
+          }
+          var male=document.getElementById("male").checked;
+          var female=document.getElementById("female").checked;
+         if((male=="") && (female=="")){
+             alert("enter your gender");
+             return false;
+         }
+         var Checkbox=document.getElementById("checkbox").checked;
+         if(Checkbox==""){
+             alert("please select the checkbox");
+             return false;
+         }
+         else{
+            alert("Your Data has been validated ");
+            return true;
+         }
+        }
+    </script>
+    <title>Validation Form</title>
+</head>
+<body>
+<div class="container">
+    <form onsubmit="return Validateform()">
+    <div class="container1">
+        <h1 style="color: red;">Registration form</h1>
+        Username: *<input type="text" id="user_name" value="" placeholder="Username">
+        <br>
+        <br>
+        Password:*<input type="password" id="password" value="" placeholder="Password">
+        <br>
+        <br>
+       Confirm Password:*<input type="password" id="cpassword" value="" placeholder="Confirm Password">
+        <br>
+        <br>
+        Name: *<input type="text" id="first_name" value="" placeholder="Enter your name">
+        <br>
+        <br>
+        Email: *<input type="text" id="email" value="" placeholder="abc@gmail.com">
+        <br>
+        <br>
+        Mobile Number: *<input type="text" id="mobile" value="" placeholder="Enter your number">
+        <br>
+        <br>
+        Age: *<input type="text" id="age" value="" placeholder="Enter your age">
+        <br>
+        <br>
+        Date Of Birth:* <input type="date" id="date">
+        <br>
+        <br>
+      Country:*  <select name="country" id="country">
+            <option value="">>>--select>>--</option>
+            <option value="india">India</option>
+            <option value="pakistan">Pakistan</option>
+            <option value="bangladesh">Bangladesh</option>
+            <option value="srilanka">SriLanka</option>
+            <option value="UAE">UAE</option>
+            <option value="australia">Australia</option>
+            <option value="USA">USA</option>
+            <option value="canada">Canada</option>
+            <option value="germany">Germany</option>
+            </select>
+            <br>
+            <br>
+            <fieldset>
+                <legend>Gender *</legend>
+            Male <input type="radio" name="gender" id="male" value="male"> 
+            Female <input type="radio" name="gender" id="female" value="female">
+            <br>
+            <br>
+            </fieldset>
+            <br>
+            Agree to terms and conditions*<input type="checkbox" id="checkbox">
+            <br>
+            <br>
+        <input type="submit" value="Submit">   
+    </div> 
+    </form>
+</div>
+</body>
+</html>
